@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · MK体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafbfc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 3rem 1.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 100%;
+        }
+
+        /* 开场短句 — 极简，留白 */
+        .opening {
+            margin-bottom: 3.5rem;
+        }
+
+        .opening p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #0f172a;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .opening .muted {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 350;
+            letter-spacing: 0.01em;
+        }
+
+        /* 承接段落 */
+        .intro-text {
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-text p {
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            color: #1e293b;
+        }
+
+        .intro-text a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd5e1;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #2563eb;
+        }
+
+        /* 特点列表 — 窄卡片，轻微分隔 */
+        .feature-list {
+            margin: 2.8rem 0 3rem;
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9edf2;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list .marker {
+            flex-shrink: 0;
+            width: 0.6rem;
+            height: 0.6rem;
+            background: #2563eb;
+            border-radius: 50%;
+            margin-top: 0.7rem;
+        }
+
+        .feature-list .content {
+            flex: 1;
+        }
+
+        .feature-list .title {
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-list .desc {
+            font-size: 0.92rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        /* 访问提醒 / 温和提示段落 */
+        .notice-box {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1.8rem 2rem;
+            margin: 2.8rem 0 2rem;
+        }
+
+        .notice-box h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.02em;
+        }
+
+        .notice-box p {
+            font-size: 0.93rem;
+            color: #334155;
+            margin-bottom: 0.6rem;
+        }
+
+        .notice-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .notice-box a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #b9cadb;
+            transition: border-color 0.2s;
+        }
+
+        .notice-box a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        /* FAQ 摘要 — 极简窄行 */
+        .faq-summary {
+            margin: 2.5rem 0 2rem;
+            padding-top: 0.5rem;
+        }
+
+        .faq-summary summary {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: #1e293b;
+            cursor: pointer;
+            padding: 0.25rem 0;
+            list-style: none;
+            display: inline-block;
+            border-bottom: 1px dashed #94a3b8;
+        }
+
+        .faq-summary summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-summary details p {
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 0.5rem;
+            padding-left: 0.2rem;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 3.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .closing a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .closing a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .closing .small-note {
+            display: block;
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 2.5rem 0 0.2rem;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 2rem 1.2rem 3rem;
+            }
+            .opening p {
+                font-size: 1.25rem;
+            }
+            .notice-box {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-list li {
+                padding: 0.9rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <p>体育资讯的入口，往往比想象中更需要一点方向感。</p>
+        <span class="muted">—— 一份轻量的简明指南</span>
+    </div>
+
+    <!-- 承接段落 · 从简明指南和访问提醒切入 -->
+    <div class="intro-text">
+        <p>
+            对许多人来说，打开一个体育平台并不难，难的是在信息堆叠中找到真正值得停留的内容。
+            <strong>MK体育</strong> 所提供的，是一个结构清晰、以赛事与数据为核心的场域。
+            不论是日常浏览还是深度跟进，事先了解它的基本路径和细节，能让每次访问都更有效率。
+        </p>
+        <p>
+            下面的几点梳理，并非面面俱到的说明书，更像是一张折好的地图——
+            帮你避开常见的绕路，也提醒几件容易被忽略的小事。
+        </p>
+    </div>
+
+    <!-- 特点列表：四项，窄正文宽度，清晰标题层级 -->
+    <ul class="feature-list">
+        <li>
+            <span class="marker"></span>
+            <div class="content">
+                <div class="title">赛程结构 · 按时间与联赛归类</div>
+                <div class="desc">所有赛事以日期和联赛维度分层陈列，从重要杯赛到次级联赛均可直接定位，无需反复切换页面。</div>
+            </div>
+        </li>
+        <li>
+            <span class="marker"></span>
+            <div class="content">
+                <div class="title">数据呈现 · 侧重简明与实时</div>
+                <div class="desc">比分、统计、阵容等信息以克制的方式展示，减少无关干扰，同时保持关键数字的更新节奏。</div>
+            </div>
+        </li>
+        <li>
+            <span class="marker"></span>
+            <div class="content">
+                <div class="title">界面惯性 · 适合专注浏览</div>
+                <div class="desc">没有过度动效或弹窗打断，导航逻辑延续了经典的信息层级，新用户适应成本较低。</div>
+            </div>
+        </li>
+        <li>
+            <span class="marker"></span>
+            <div class="content">
+                <div class="title">访问提醒 · 网络与终端适配</div>
+                <div class="desc">部分内容或推送功能可能需要稳定的网络环境，建议在常用设备上提前确认基础设置。</div>
+            </div>
+        </li>
+    </ul>
+
+    <!-- 提示/注意事项 — 从访问提醒的角度展开 -->
+    <div class="notice-box">
+        <h3>⚡ 访问提醒 · 几点经验</h3>
+        <p>
+            如果你第一次接触 <a href="https://mainofficial-mk.com">MK体育</a>，
+            不妨花几分钟熟悉一下主菜单的分类逻辑：<br>
+            「赛事」「数据」「信息」三个主要分区各自承担不同角色，首屏内容往往是最新的焦点场次。
+        </p>
+        <p>
+            另外，由于数据接口与更新依赖外部信号，极端情况下部分比分可能存在短暂延迟。保持平常心，多核对。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要：两个轻量问答，保持克制 -->
+    <div class="faq-summary">
+        <details>
+            <summary>页面加载较慢怎么办？</summary>
+            <p>先检查本地网络；部分资源采用按需加载，首次进入稍等片刻即可。<br>
+            如果长期卡顿，可尝试更换浏览器或关闭不必要的插件。</p>
+        </details>
+        <details>
+            <summary>是否需要在访问前做特殊设置？</summary>
+            <p>不需要额外注册或安装。网站以标准化 web 页面呈现，直接通过浏览器打开即可浏览。<br>
+            唯一建议：保持浏览器版本更新，以获得更好的显示效果。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 + 自然嵌入链接 -->
+    <div class="closing">
+        <p>
+            说到底，一个平台的价值在于它是否能持续提供可靠的内容与舒适的浏览体验。
+            <a href="https://mainofficial-mk.com">MK体育</a> 在这方面有自己的节奏——
+            不喧哗，但该有的信息一项不少。
+        </p>
+        <p>
+            如果你正在寻找一个可以安静追踪赛事的站点，不妨把它放在书签栏里。
+            偶尔打开，慢慢看，就已经足够。
+        </p>
+        <span class="small-note">— 叙述完毕 · 感谢阅读 —</span>
+    </div>
+
+    <hr>
+    <div style="font-size: 0.75rem; color: #94a3b8; text-align: center; margin-top: 1.5rem; letter-spacing: 0.02em;">
+        &middot; 简明 · 克制 · 留白 &middot;
+    </div>
+</div>
+</body>
+</html>
